@@ -1,8 +1,8 @@
 # Answer Relevancy
 
-**Status:** Foundation / Mathematical understanding
-**Category:** LLM evaluation / RAG evaluation
-**Purpose:** Measure whether a generated response addresses the user's input.
+- **Status:** Foundation / Mathematical understanding
+- **Category:** LLM evaluation / RAG evaluation
+- **Purpose:** Measure whether a generated response addresses the user's input.
 
 ## 1. Definition
 
