@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Technical Research Notebook
 
 A version-controlled notebook for AI evaluation research,
@@ -81,4 +80,3 @@ ai-evaluation-lab/
 ├── bug-investigations/
 └── templates/
     └── research-note.md
->>>>>>> origin/main
