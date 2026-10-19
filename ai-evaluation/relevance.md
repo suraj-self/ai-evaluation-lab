@@ -89,7 +89,7 @@ Here, $t$ is text and $d$ the embedding dimension. Interpret the vector as a who
 
 **Definition:** Cosine similarity measures the cosine of the angle between two nonzero vectors. It compares direction, not magnitude.
 
-$$\operatorname{cos}(\mathbf a,\mathbf b)=\frac{\mathbf a\cdot\mathbf b}{\lVert\mathbf a\rVert\lVert\mathbf b\rVert}$$
+$$\cos(\mathbf a,\mathbf b)=\frac{\mathbf a\cdot\mathbf b}{\lVert\mathbf a\rVert\lVert\mathbf b\rVert}$$
 
 The dot product is $\mathbf a\cdot\mathbf b=\sum_j a_jb_j$; the Euclidean norm is $\lVert\mathbf a\rVert=\sqrt{\sum_j a_j^2}$.
 
@@ -130,7 +130,7 @@ Cosine similarity ranges from $-1$ to $1$ for nonzero vectors. Text embeddings o
 
 For original question $q$, generated questions $q_1,\ldots,q_N$, and embedding function $E$, let $E_o=E(q)$ and $E_{g_i}=E(q_i)$. Mean cosine similarity is:
 
-$$R_{\text{mean}}=\frac{1}{N}\sum_{i=1}^{N}\operatorname{cos}(E_{g_i},E_o)$$
+$$R_{\text{mean}}=\frac{1}{N}\sum_{i=1}^{N}\cos(E_{g_i},E_o)$$
 
 **Example:** Similarities `0.82`, `0.62`, `0.74` → $(0.82+0.62+0.74)/3\approx0.727$. These are invented similarity values, not from model embeddings.
 
