@@ -1,9 +1,9 @@
 # Answer Relevancy — Concepts and Techniques
 
 - **Purpose:** Evaluate whether a generated answer addresses the user's question.
-- **Focus:** Reusable techniques, mathematics, strengths, limitations, and QA validation—not framework source-code walkthroughs.
+- **Focus:** Reusable techniques, mathematics, strengths, limitations, and QA validation.
 - **Learning approach:** Understand intermediate results, independently verify calculations, and separate observations from assumptions.
-- **Cost constraint:** Use local Ollama models only. No paid APIs or real API keys; pull another lightweight model only if genuinely required.
+- **Cost constraint:** Used local Ollama models only. No paid APIs or real API keys; pull another lightweight model only if genuinely required.
 
 ## 1. Definition and scope
 
