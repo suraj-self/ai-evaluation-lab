@@ -33,17 +33,17 @@ Here, $y$ is the answer, $s_i$ an extracted statement, and $m$ the model-produce
 
 ## 3. Technique: LLM-as-a-judge classification
 
-**Definition:** A prompted LLM classifies an item against a criterion, such as whether a statement addresses the original question.
+- **Definition:** A prompted LLM classifies an item against a criterion, such as whether a statement addresses the original question.
 
 $$v_i=J(q,s_i)$$
 
 Here, $q$ is the question, $s_i$ a statement, and $J$ the prompted judge procedure. This is a model-generated judgment, not a deterministic mathematical operation.
 
-**Example:** For "What are the benefits of regular exercise?", "Exercise can improve cardiovascular health" is relevant; "The Pacific Ocean is the largest ocean on Earth" is irrelevant.
+- **Example:** For "What are the benefits of regular exercise?", "Exercise can improve cardiovascular health" is relevant; "The Pacific Ocean is the largest ocean on Earth" is irrelevant.
 
-**Strengths:** Flexible and explainable when reasons are returned.
-**Limitations:** Judge may misunderstand intent, follow prompt bias, or vary across models/runs. A relevant verdict does not mean true, grounded, or complete.
-**Framework association:** Statement-level judgments in DeepEval's standard approach.
+- **Strengths:** Flexible and explainable when reasons are returned.
+- **Limitations:** Judge may misunderstand intent, follow prompt bias, or vary across models/runs. A relevant verdict does not mean true, grounded, or complete.
+- **Framework association:** Statement-level judgments in DeepEval's standard approach.
 
 ## 4. Technique: verdict aggregation
 
@@ -66,10 +66,10 @@ print(relevancy_ratio(["yes", "yes", "no"]))  # 0.6667...
 
 This is a math illustration, not a complete replica of framework edge-case handling.
 
-**Strengths:** Simple to reproduce from verdicts.
-**Limitations:** All counted statements are weighted equally; a trivial aside counts as much as a major irrelevant claim. The score depends on decomposition and judge quality.
-**Verified edge case (DeepEval shared helper):** literal `None` verdicts are filtered; if none remain, the helper returns `empty_score` (default `1.0`); in strict mode a below-threshold score can be clamped to zero.
-**QA risk:** an empty or fully-filtered verdict list may score `1.0` at the helper level—a potential false positive. Test end-to-end; do not assume the helper alone determines the final pipeline score.
+- **Strengths:** Simple to reproduce from verdicts.
+- **Limitations:** All counted statements are weighted equally; a trivial aside counts as much as a major irrelevant claim. The score depends on decomposition and judge quality.
+- **Verified edge case (DeepEval shared helper):** literal `None` verdicts are filtered; if none remain, the helper returns `empty_score` (default `1.0`); in strict mode a below-threshold score can be clamped to zero.
+- **QA risk:** an empty or fully-filtered verdict list may score `1.0` at the helper level—a potential false positive. Test end-to-end; do not assume the helper alone determines the final pipeline score.
 
 ## 5. Technique: text embeddings
 
