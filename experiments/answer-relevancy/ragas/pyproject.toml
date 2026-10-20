@@ -1,0 +1,18 @@
+
+[project]
+name = "ragas-answer-relevancy-local"
+version = "0.1.0"
+description = "Local Ragas Answer Relevancy experiment using Ollama"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "ragas>=0.4,<0.5",
+    "openai>=1.0",
+    "langchain-openai>=0.3",
+    "langchain-community==0.4.1",
+]
+
+[project.scripts]
+ragas-answer-relevancy = "ragas_answer_relevancy:main"
+
+[tool.uv]
+package = false
