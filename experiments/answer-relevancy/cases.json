@@ -1,0 +1,12 @@
+[
+  {
+    "name": "RELEVANT",
+    "input": "What are the benefits of regular exercise?",
+    "actual_output": "Regular exercise improves cardiovascular health, strengthens muscles, and supports mental well-being."
+  },
+  {
+    "name": "IRRELEVANT",
+    "input": "What are the benefits of regular exercise?",
+    "actual_output": "The Pacific Ocean is the largest ocean on Earth."
+  }
+]
