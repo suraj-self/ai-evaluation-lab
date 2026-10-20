@@ -79,11 +79,11 @@ $$E(t)=\mathbf{x}\in\mathbb{R}^{d}$$
 
 Here, $t$ is text and $d$ the embedding dimension. Interpret the vector as a whole; individual coordinates usually have no simple human-readable meaning.
 
-**Observed local example:** `nomic-embed-text:latest` returned a 768-dimensional vector for "What are the benefits of regular exercise?" First five coordinates: approximately `[0.0091, 0.0885, -0.1764, 0.0283, 0.0017]`.
+- **Observed local example:** `nomic-embed-text:latest` returned a 768-dimensional vector for "What are the benefits of regular exercise?" First five coordinates: approximately `[0.0091, 0.0885, -0.1764, 0.0283, 0.0017]`.
 
-**Strengths:** Captures semantic relationships beyond exact word overlap; makes text numerically comparable.
-**Limitations:** Similarity is not entailment or relevance proof; unrelated text can score nonzero; embeddings may miss negation, intent, or fine details. Results depend on the embedding model.
-**Framework association:** Used by Ragas; not used by DeepEval's standard statement-ratio calculation.
+- **Strengths:** Captures semantic relationships beyond exact word overlap; makes text numerically comparable.
+- **Limitations:** Similarity is not entailment or relevance proof; unrelated text can score nonzero; embeddings may miss negation, intent, or fine details. Results depend on the embedding model.
+- **Framework association:** Used by Ragas; not used by DeepEval's standard statement-ratio calculation.
 
 ## 6. Technique: cosine similarity
 
@@ -111,20 +111,20 @@ print(cosine_similarity([1, 0], [0.8, 0.6]))  # 0.8
 
 Cosine similarity ranges from $-1$ to $1$ for nonzero vectors. Text embeddings often yield nonnegative scores, but this is not guaranteed.
 
-**Limitation:** High similarity suggests semantic proximity; it does not prove the answer is correct, complete, or responsive.
-**Framework association:** Used in the Ragas approach.
+- **Limitation:** High similarity suggests semantic proximity; it does not prove the answer is correct, complete, or responsive.
+- **Framework association:** Used in the Ragas approach.
 
 ## 7. Technique: reverse-question generation
 
-**Definition:** Give the answer to an LLM and ask it to generate a question the answer could answer. Compare that question with the user's original question.
+- **Definition:** Give the answer to an LLM and ask it to generate a question the answer could answer. Compare that question with the user's original question.
 
-**Example:** Answer "Albert Einstein was born in Germany" → generated question "Where was Albert Einstein born?" (illustrative, not from our experiment).
+- **Example:** Answer "Albert Einstein was born in Germany" → generated question "Where was Albert Einstein born?" (illustrative, not from our experiment).
 
-**Why use it?** Converts the answer into a question-shaped semantic representation, then estimates whether the reconstructed intent matches the original input. Differs from judging every answer statement individually.
+- **Why use it?** Converts the answer into a question-shaped semantic representation, then estimates whether the reconstructed intent matches the original input. Differs from judging every answer statement individually.
 
-**Strengths:** No reference answer needed; uses semantic alignment instead of binary claim classification.
-**Limitations:** Generated questions can be broad, incomplete, or poorly phrased; may represent only one part of a multi-part answer. Depends on both generator and embedder.
-**Framework association:** Central to Ragas Answer Relevancy.
+- **Strengths:** No reference answer needed; uses semantic alignment instead of binary claim classification.
+ - **Limitations:** Generated questions can be broad, incomplete, or poorly phrased; may represent only one part of a multi-part answer. Depends on both generator and embedder.
+- **Framework association:** Central to Ragas Answer Relevancy.
 
 ## 8. Technique: mean aggregation and noncommittal adjustment
 
@@ -143,9 +143,8 @@ $$R_{\text{Ragas}}=R_{\text{mean}}\times\mathbb{1}[\text{not all items noncommit
 where $\mathbb{1}[\cdot]$ is the indicator function ($1$ if the condition holds, else $0$).
 
 If every generated question string is empty, the inspected implementation returns `NaN` rather than computing cosine similarity.
-
-**Strengths:** Multiple questions can probe different aspects of the answer.
-**Limitations:** More generations cost more and need not be diverse; averaging can hide one poor match; the all-noncommittal rule overrides the similarity mean.
+- **Strengths:** Multiple questions can probe different aspects of the answer.
+- **Limitations:** More generations cost more and need not be diverse; averaging can hide one poor match; the all-noncommittal rule overrides the similarity mean.
 
 ## 9. Compare the approaches
 
